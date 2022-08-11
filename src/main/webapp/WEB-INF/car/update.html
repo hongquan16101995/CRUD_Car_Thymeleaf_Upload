@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h1>Update car</h1>
+    <h2 th:if="${message} != null" th:text="${message}"></h2>
+    <form method="post" th:object="${car}">
+        <table class="table table-striped">
+            <tr>
+                <td>Name</td>
+                <td><label><input type="text" th:field="*{name}"></label></td>
+            </tr>
+            <tr>
+                <td>Color</td>
+                <td><label><input type="text" th:field="*{color}"></label></td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td><label><input type="text" th:field="*{price}"></label></td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>
+                    <label><input type="file" th:field="*{image}"></label>
+                    <img width="100px" height="100px" th:src="@{'../image/' + ${car.getImageUrl()}}" alt=""/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button class="btn btn-warning" type="submit"><span>Update</span></button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <button class="btn btn-primary"><a href="/car">Back to home</a></button>
+</div>
+</body>
+</html>

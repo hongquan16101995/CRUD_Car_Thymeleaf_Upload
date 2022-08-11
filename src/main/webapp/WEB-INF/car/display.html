@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: header">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h1>List Car</h1>
+    <h2 th:if="${message} != null" th:text="${message}"></h2>
+    <div class="row">
+        <div class="col-6">
+            <button class="btn btn-primary"><a th:href="@{/car/create}">Create new car</a></button>
+        </div>
+        <div id="search" class="col-6">
+            <form th:action="@{/car/search}" method="post">
+                <label><input type="text" name="search" th:value="${search}"></label>
+                <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th id="action" colspan="3">Action</th>
+        </tr>
+        <tr th:each="c,status : ${cars}">
+            <td th:text="${status.count}"></td>
+            <td th:text="${c.getName()}"></td>
+            <td th:text="${c.getColor()}"></td>
+            <td th:text="${c.getPrice()}"></td>
+            <td><img width="200px" height="200px" th:src="@{'../image/' + ${c.getImageUrl()}}" alt=""/></td>
+            <td>
+                <button class="btn btn-warning">
+                    <a th:href="@{/car/update/{id}(id=${c.getId()})}">Update</a>
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-danger">
+                    <a th:href="@{/car/delete/{id}(id=${c.getId()})}">Delete</a>
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-info">
+                    <a th:href="@{/car/{id}(id=${c.getId()})}">Detail</a>
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
