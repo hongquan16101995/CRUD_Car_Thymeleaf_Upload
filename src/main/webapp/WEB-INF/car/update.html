@@ -25,7 +25,7 @@
                 <th>Image</th>
                 <td>
                     <label><input type="file" th:field="*{image}"></label>
-                    <img width="100px" height="100px" th:src="@{'../image/' + ${car.getImageUrl()}}" alt=""/>
+                    <img width="100px" height="100px" th:src="@{'../../image/' + ${car.getImageUrl()}}" alt=""/>
                 </td>
             </tr>
             <tr>

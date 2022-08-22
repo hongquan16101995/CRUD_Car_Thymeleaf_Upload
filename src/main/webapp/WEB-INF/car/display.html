@@ -32,7 +32,7 @@
             <td th:text="${c.getName()}"></td>
             <td th:text="${c.getColor()}"></td>
             <td th:text="${c.getPrice()}"></td>
-            <td><img width="200px" height="200px" th:src="@{'../image/' + ${c.getImageUrl()}}" alt=""/></td>
+            <td><img width="200px" height="200px" th:src="@{'../../image/' + ${c.getImageUrl()}}" alt=""/></td>
             <td>
                 <button class="btn btn-warning">
                     <a th:href="@{/car/update/{id}(id=${c.getId()})}">Update</a>

@@ -19,7 +19,7 @@
             <td th:text="${car.getName()}"></td>
             <td th:text="${car.getColor()}"></td>
             <td th:text="${car.getPrice()}"></td>
-            <td><img width="200px" height="200px" th:src="@{'../image/' + ${car.getImageUrl()}}" alt=""/></td>
+            <td><img width="200px" height="200px" th:src="@{'../../image/' + ${car.getImageUrl()}}" alt=""/></td>
         </tr>
     </table>
     <button class="btn btn-primary"><a href="/car">Back to home</a></button>
